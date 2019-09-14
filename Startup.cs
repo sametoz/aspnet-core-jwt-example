@@ -39,9 +39,9 @@ namespace jwt_example
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateAudience = false,
+                    ValidateAudience = true,
                     ValidAudience = "admin.samet.com",
-                    ValidateIssuer = false,
+                    ValidateIssuer = true,
                     ValidIssuer = "issuer.samet.com",
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
@@ -71,10 +71,10 @@ namespace jwt_example
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthentication();
+
             app.UseHttpsRedirection();
             app.UseMvc();
-
+            app.UseAuthentication();
         }
     }
 }
